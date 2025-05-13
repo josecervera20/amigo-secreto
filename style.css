@@ -204,3 +204,110 @@ body {
   background-color: #fff;
   color: #1875e8;
 }
+
+/* Estilos para tabletas (pantallas entre 768px y 1024px) */
+@media screen and (max-width: 1024px) {
+  .content {
+    position: relative;
+    width: 90%;
+    height: auto;
+    transform: none;
+    top: 0;
+    left: 0;
+    margin: 40px auto;
+  }
+
+  .content__main {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .section--results {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .friends__container,
+  .prizeDraw__container {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .form__buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .form__input {
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .page__image {
+    display: none;
+  }
+
+  .content__corner-rectangle {
+    width: 80%;
+    right: 10%;
+  }
+}
+
+/* Estilos para dispositivos móviles (pantallas < 768px) */
+@media screen and (max-width: 767px) {
+  .section__title {
+    font-size: 36px;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .form__label,
+  .form__link,
+  .friends__title,
+  .prizeDraw__title {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .form__input {
+    width: 90%;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  .friends__container,
+  .prizeDraw__container {
+    font-size: 16px;
+    padding: 14px;
+    height: auto;
+  }
+
+  .prizeDraw__container {
+    font-style: normal;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 10px 14px;
+  }
+
+  .background__detail {
+    height: calc(100% - 250px);
+    top: 150px;
+  }
+}
