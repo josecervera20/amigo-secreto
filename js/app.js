@@ -1,40 +1,44 @@
+/**
+ * Lista principal de amigos.
+ * @type {string[]}
+ */
 let listaAmigos = [];
 
 /**
- * Añade un amigo a la lista si es válido.
+ * Maneja el evento de agregar un amigo:
+ * valida el nombre, lo agrega a la lista y actualiza la vista.
+ * @returns {void}
  */
 function adicionar() {
-  const inputNombreAmigo = document.getElementById("nombre-amigo");
-  const nombreAmigo = inputNombreAmigo.value.trim().toUpperCase();
+  const inputNombre = document.getElementById("nombre-amigo");
+  const nombre = inputNombre.value.trim().toUpperCase();
 
-  if (!validarNombreAmigo(nombreAmigo)) return;
+  if (!esNombreValido(nombre)) return;
 
-  agregarAmigo(nombreAmigo);
-  limpiarInput(inputNombreAmigo);
+  listaAmigos.push(nombre);
+  inputNombre.value = "";
   actualizarVistaLista();
   limpiarResultadosSorteo();
 }
 
 /**
- * Valida que el nombre del amigo no sea vacío, ni contenga números o caracteres especiales, ni esté repetido.
- * @param {string} nombreAmigo - Nombre del amigo.
- * @returns {boolean} - Indica si el nombre es válido.
+ * Valida si el nombre ingresado es correcto y único.
+ * @param {string} nombre - Nombre a validar.
+ * @returns {boolean} - Retorna true si es válido.
  */
-function validarNombreAmigo(nombreAmigo) {
-  if (!nombreAmigo) {
+function esNombreValido(nombre) {
+  if (!nombre) {
     alert("Por favor, escribe un nombre.");
     return false;
   }
 
-  if (!/^[A-ZÁÉÍÓÚÑ ]+$/i.test(nombreAmigo)) {
-    alert(
-      "El nombre solo puede contener letras y espacios. Intenta nuevamente."
-    );
+  if (!/^[A-ZÁÉÍÓÚÑ ]+$/i.test(nombre)) {
+    alert("El nombre solo puede contener letras y espacios.");
     return false;
   }
 
-  if (listaAmigos.includes(nombreAmigo)) {
-    alert("El nombre ya ha sido agregado. Intenta con otro.");
+  if (listaAmigos.includes(nombre)) {
+    alert("El nombre ya ha sido agregado.");
     return false;
   }
 
@@ -42,109 +46,111 @@ function validarNombreAmigo(nombreAmigo) {
 }
 
 /**
- * Agrega un amigo a la lista.
- * @param {string} nombreAmigo - Nombre del amigo.
- */
-function agregarAmigo(nombreAmigo) {
-  listaAmigos.push(nombreAmigo);
-}
-
-/**
- * Limpia el campo de entrada.
- * @param {HTMLElement} input - Elemento de entrada a limpiar.
- */
-function limpiarInput(input) {
-  input.value = "";
-}
-
-/**
- * Realiza el sorteo si hay al menos 4 participantes.
+ * Realiza el sorteo y muestra resultados si hay suficientes participantes.
+ * @returns {void}
  */
 function sortear() {
   if (listaAmigos.length < 4) {
-    alert("¡Necesitamos al menos 4 participantes para realizar el sorteo!");
+    alert("¡Se necesitan al menos 4 participantes!");
     return;
   }
 
-  const resultadoSorteo = generarSorteo();
-  mostrarResultadosSorteo(resultadoSorteo);
+  const resultados = generarSorteo();
+  mostrarResultadosSorteo(resultados);
 }
 
 /**
- * Genera los pares para el sorteo.
+ * Genera parejas aleatorias sin repeticiones.
  * @returns {string[]} - Lista de resultados del sorteo.
  */
 function generarSorteo() {
-  const listaMezclada = [...listaAmigos];
-  mezclarLista(listaMezclada);
+  const mezcla = [...listaAmigos];
+  mezclarLista(mezcla);
 
-  return listaMezclada.map(
-    (amigo, index) =>
-      `${amigo} → ${listaMezclada[(index + 1) % listaMezclada.length]}`
+  return mezcla.map(
+    (amigo, i) => `${amigo} → ${mezcla[(i + 1) % mezcla.length]}`
   );
 }
 
 /**
- * Mezcla la lista de amigos de forma aleatoria.
+ * Mezcla una lista usando el algoritmo de Fisher-Yates.
  * @param {string[]} lista - Lista de amigos a mezclar.
+ * @returns {void}
  */
 function mezclarLista(lista) {
   for (let i = lista.length - 1; i > 0; i--) {
-    const indiceAleatorio = Math.floor(Math.random() * (i + 1));
-    [lista[i], lista[indiceAleatorio]] = [lista[indiceAleatorio], lista[i]];
+    const j = Math.floor(Math.random() * (i + 1));
+    [lista[i], lista[j]] = [lista[j], lista[i]];
   }
 }
 
 /**
- * Muestra los resultados del sorteo en la vista.
- * @param {string[]} resultados - Resultados del sorteo.
+ * Muestra los resultados del sorteo en el DOM.
+ * @param {string[]} resultados - Resultados generados.
+ * @returns {void}
  */
 function mostrarResultadosSorteo(resultados) {
-  const contenedorResultados = document.getElementById("lista-sorteo");
-  contenedorResultados.innerHTML = resultados.join("<br>");
+  const contenedor = document.getElementById("lista-sorteo");
+  contenedor.innerHTML = resultados.join("<br>");
 }
 
 /**
- * Reinicia el programa limpiando las listas y las vistas.
+ * Reinicia la lista de amigos y limpia la vista.
+ * @returns {void}
  */
 function reiniciar() {
   listaAmigos = [];
-  limpiarResultadosSorteo();
   actualizarVistaLista();
-  alert("¡La lista y el sorteo han sido reiniciados!");
+  limpiarResultadosSorteo();
+  alert("La lista y el sorteo han sido reiniciados.");
 }
 
 /**
- * Limpia los resultados del sorteo en la vista.
+ * Limpia los resultados del sorteo en el DOM.
+ * @returns {void}
  */
 function limpiarResultadosSorteo() {
-  const contenedorResultados = document.getElementById("lista-sorteo");
-  contenedorResultados.innerHTML = "";
+  document.getElementById("lista-sorteo").innerHTML = "";
 }
 
 /**
- * Actualiza la vista de la lista de amigos.
+ * Muestra la lista de amigos en pantalla y permite su eliminación.
+ * @returns {void}
  */
 function actualizarVistaLista() {
-  const contenedorAmigos = document.getElementById("lista-amigos");
-  contenedorAmigos.innerHTML = "";
+  const contenedor = document.getElementById("lista-amigos");
+  contenedor.innerHTML = "";
 
-  listaAmigos.forEach((amigo, index) => {
-    const parrafo = document.createElement("p");
-    parrafo.textContent = amigo;
-    parrafo.addEventListener("click", () => eliminarAmigo(index));
-    contenedorAmigos.appendChild(parrafo);
+  listaAmigos.forEach((amigo, i) => {
+    const p = document.createElement("p");
+    p.textContent = amigo;
+    p.addEventListener("click", () => eliminarAmigo(i));
+    contenedor.appendChild(p);
   });
 }
 
 /**
- * Elimina un amigo de la lista según su posición y muestra un mensaje con su nombre.
- * @param {number} index - Índice del amigo a eliminar.
+ * Elimina un amigo de la lista por índice y actualiza la vista.
+ * @param {number} i - Índice del amigo a eliminar.
+ * @returns {void}
  */
-function eliminarAmigo(index) {
-  const nombreEliminado = listaAmigos[index];
-  listaAmigos.splice(index, 1);
+function eliminarAmigo(i) {
+  const eliminado = listaAmigos.splice(i, 1)[0];
   actualizarVistaLista();
   limpiarResultadosSorteo();
-  alert(`"${nombreEliminado}" ha sido eliminado de la lista.`);
+  alert(`"${eliminado}" ha sido eliminado.`);
 }
+
+/**
+ * Permite agregar un amigo presionando Enter en el input.
+ * Ejecuta la función 'adicionar' y evita el envío del formulario.
+ */
+document.addEventListener("DOMContentLoaded", () => {
+  const inputNombre = document.getElementById("nombre-amigo");
+  inputNombre.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      adicionar();
+    }
+  });
+});
