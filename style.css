@@ -205,6 +205,14 @@ body {
   color: #1875e8;
 }
 
+/* Estilo para el botón cuando está deshabilitado */
+.secondary.disabled {
+  background-color: #f7f7f7;
+  color: #001e73;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 /* Estilos para tabletas (pantallas entre 768px y 1024px) */
 @media screen and (max-width: 1024px) {
   .content {
