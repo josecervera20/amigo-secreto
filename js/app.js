@@ -95,14 +95,24 @@ function mostrarResultadosSorteo(resultados) {
 }
 
 /**
- * Reinicia la lista de amigos y limpia la vista.
+ * Reinicia la lista de amigos y limpia la vista solo si hay contenido.
  * @returns {void}
  */
 function reiniciar() {
+  const hayAmigos = listaAmigos.length > 0;
+  const resultadosSorteo = document
+    .getElementById("lista-sorteo")
+    .innerHTML.trim();
+
+  if (!hayAmigos && !resultadosSorteo) {
+    alert("Aún no se ha agregado ningún amigo ni realizado un sorteo.");
+    return;
+  }
+
   listaAmigos = [];
   actualizarVistaLista();
   limpiarResultadosSorteo();
-  alert("La lista y el sorteo han sido reiniciados.");
+  alert("La lista de amigos y los resultados del sorteo han sido reiniciados.");
 }
 
 /**
