@@ -19,6 +19,7 @@ function adicionar() {
   inputNombre.value = "";
   actualizarVistaLista();
   limpiarResultadosSorteo();
+  actualizarBotonSorteo();
 }
 
 /**
@@ -113,6 +114,7 @@ function reiniciar() {
   actualizarVistaLista();
   limpiarResultadosSorteo();
   alert("La lista de amigos y los resultados del sorteo han sido reiniciados.");
+  actualizarBotonSorteo(); // Asegura que el botón de sorteo se deshabilite al reiniciar
 }
 
 /**
@@ -149,6 +151,7 @@ function eliminarAmigo(i) {
   actualizarVistaLista();
   limpiarResultadosSorteo();
   alert(`"${eliminado}" ha sido eliminado.`);
+  actualizarBotonSorteo(); // Actualiza el estado del botón después de eliminar un amigo
 }
 
 /**
@@ -163,4 +166,22 @@ document.addEventListener("DOMContentLoaded", () => {
       adicionar();
     }
   });
+
+  // Actualiza el estado del botón al cargar la página
+  actualizarBotonSorteo();
 });
+
+/**
+ * Deshabilita o habilita el botón de sorteo según el número de amigos.
+ * @returns {void}
+ */
+function actualizarBotonSorteo() {
+  const botonSorteo = document.querySelector(".button.secondary");
+  if (listaAmigos.length < 4) {
+    botonSorteo.disabled = true;
+    botonSorteo.classList.add("disabled");
+  } else {
+    botonSorteo.disabled = false;
+    botonSorteo.classList.remove("disabled");
+  }
+}
