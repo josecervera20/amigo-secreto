@@ -62,4 +62,4 @@
 
 ## 📄 Licencia
 
-Este proyecto es de código abierto y se publica bajo la [Licencia MIT](https://github.com/josecervera20/amigo-secreto.git/blob/main/LICENSE). Siéntete libre de usar, modificar y distribuir este código para tus propios proyectos.
+Este proyecto es de código abierto y se publica bajo la [Licencia MIT](LICENSE). Siéntete libre de usar, modificar y distribuir este código para tus propios proyectos.
