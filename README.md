@@ -1,70 +1,65 @@
-# 🎁 Amigo Secreto  
-
-**Amigo Secreto** es una aplicación web sencilla y divertida que permite organizar un sorteo de amigo secreto. Este proyecto fue desarrollado con HTML, CSS y JavaScript, enfocándose en una interfaz intuitiva y funcional para los usuarios.
+# 🎁 Amigo Secreto 🎉
 
 ---
 
-## 🚀 Funcionalidades  
+## 📝 Descripción del Proyecto
 
-- **Añadir Participantes:**  
-  Permite agregar nombres de amigos a una lista, validando que no se ingresen duplicados, números ni caracteres especiales.  
-
-- **Eliminar Participantes:**  
-  Los participantes pueden eliminarse fácilmente haciendo clic en su nombre en la lista, mostrando un mensaje amigable con el nombre del eliminado.  
-
-- **Realizar Sorteo:**  
-  Una vez que se han ingresado al menos 4 participantes, el sistema realiza el sorteo asignando un amigo secreto a cada participante.  
-
-- **Reiniciar Lista:**  
-  Limpia todos los participantes y resultados para empezar de nuevo.  
+**Amigo Secreto** es una aplicación web interactiva y fácil de usar, diseñada para organizar sorteos de amigo secreto de forma sencilla. Desarrollada con **HTML, CSS y JavaScript**, esta herramienta ofrece una interfaz intuitiva que facilita la gestión de participantes y la realización del sorteo.
 
 ---
 
-## 🛠️ Tecnologías Utilizadas  
+## 🚀 Funcionalidades Principales
 
-- **HTML:**  
-  Estructura de la aplicación y elementos interactivos como formularios y botones.  
-
-- **CSS:**  
-  Estilos personalizados para una experiencia visual atractiva.  
-
-- **JavaScript:**  
-  Lógica de la aplicación, validaciones, manejo de eventos y sorteo de los participantes.
+* **Añadir Participantes:** Permite agregar nombres a la lista de sorteo, con validación integrada para evitar duplicados, números o caracteres especiales, asegurando entradas limpias.
+* **Eliminar Participantes:** Facilita la remoción de cualquier participante con un simple clic en su nombre, acompañada de un mensaje de confirmación amigable.
+* **Realizar Sorteo:** Ejecuta el sorteo automáticamente una vez que se han registrado al menos 4 participantes, asignando un amigo secreto a cada uno y mostrando los resultados en un formato claro ("A → B").
+* **Reiniciar Aplicación:** Borra todos los participantes y resultados del sorteo, permitiendo comenzar un nuevo juego al instante.
 
 ---
 
-## 📋 Cómo Usarlo  
+## 🛠️ Tecnologías Utilizadas
 
-1. **Agregar participantes:**  
-   Escribe el nombre de un amigo en el campo de texto y haz clic en el botón "Agregar".  
-   - **Restricciones:** El nombre debe contener solo letras y espacios.  
-
-2. **Eliminar participantes:**  
-   Haz clic en el nombre de cualquier participante en la lista para eliminarlo.  
-
-3. **Realizar sorteo:**  
-   Una vez que tengas al menos 4 participantes, haz clic en el botón "Sortear". Se mostrará el resultado en un formato de "A → B".  
-
-4. **Reiniciar la aplicación:**  
-   Haz clic en "Reiniciar" para limpiar la lista y los resultados del sorteo.  
+* **HTML5**: Para la estructura fundamental de la aplicación, incluyendo formularios y botones interactivos.
+* **CSS3**: Para un diseño moderno y una experiencia visual atractiva y fácil de usar.
+* **JavaScript**: Para la lógica central de la aplicación, manejando las validaciones, eventos de usuario y el algoritmo de sorteo.
 
 ---
 
-## 🎨 Captura de Pantalla  
+## 📦 Cómo Usarlo
 
-![Amigo Secreto](./assets/image.png) 
+1.  **Clona el repositorio** en tu máquina local:
+    ```bash
+    git clone https://github.com/josecervera20/amigo-secreto.git
+    ```
+2.  **Navega al directorio del proyecto**:
+    ```bash
+    cd amigo-secreto
+    ```
+3.  **Abre el archivo `index.html`** en tu navegador web preferido.
+4.  **Agregar participantes:** Escribe el nombre de un amigo en el campo de texto y haz clic en "Agregar".
+    * **Importante:** Los nombres solo deben contener letras y espacios.
+5.  **Eliminar participantes:** Simplemente haz clic en el nombre de cualquier participante en la lista para eliminarlo.
+6.  **Realizar sorteo:** Cuando tengas al menos 4 participantes, haz clic en el botón "Sortear". Los resultados se mostrarán indicando quién le regala a quién.
+7.  **Reiniciar la aplicación:** Haz clic en "Reiniciar" para borrar la lista y los resultados del sorteo, y empezar de nuevo.
 
 ---
 
-## 🤝 Contribuciones  
+## 🎨 Captura de Pantalla
 
-¿Tienes ideas para mejorar este proyecto? ¡Las contribuciones son bienvenidas! Puedes:  
-1. Hacer un fork del repositorio.  
-2. Crear una nueva rama para tus mejoras.  
-3. Enviar un pull request con una descripción detallada.  
+![Captura de pantalla de la aplicación Amigo Secreto](./assets/image.png)
 
 ---
 
-## 📜 Licencia  
+## 🤝 Contribuciones
 
-Este proyecto es de código abierto y se publica bajo la licencia MIT. 
+¡Las contribuciones son siempre bienvenidas! Si tienes ideas para mejorar este proyecto o encuentras algún problema, no dudes en:
+
+1.  Hacer un `fork` del repositorio.
+2.  Crear una nueva rama (`git checkout -b feature/nueva-funcionalidad`).
+3.  Enviar un `pull request` con una descripción detallada de tus cambios.
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de código abierto y se publica bajo la [Licencia MIT](https://github.com/josecervera20/amigo-secreto.git/blob/main/LICENSE). Siéntete libre de usar, modificar y distribuir este código para tus propios proyectos.
